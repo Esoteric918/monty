@@ -28,11 +28,22 @@ void push(stack_t **stack, unsigned int linenumber)
 
 }
 
+/**
+ * _pall - print all function
+ * @stack: pointer to linked list stack 
+ * @line_number: number line opcode occurs on
+ */
 
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t = *pwall;
 
-
-
-
-
-
+	pwall = *stack;
+	if (pwall == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", pwall->n);
 }
+
