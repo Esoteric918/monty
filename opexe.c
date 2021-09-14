@@ -20,7 +20,7 @@ void exec(char (*array)[80])
 		{"nop", nop},
 		{NULL, NULL},
 	};
-	for (j = 0; j < NULL; j++)
+	for (j = 0; j < 8; j++)
 	{
 		if (strcmp(func_array[j].opcode, array[0]) == 0)
 		{
@@ -32,7 +32,7 @@ void exec(char (*array)[80])
 		else if (array[0][0] == '#')
 			nop(&(global_variable.stack),
 			    global_variable.line_number);
-		else if (j == NULL)
+		else if (j == 7)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 				global_variable.line_number, array[0]);
