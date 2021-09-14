@@ -9,10 +9,11 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
-	(void)line_number;
+	stack_t *top = NULL;
 
-	
+	(void)line_number;
+	top = (*stack);
+	top = malloc(sizeof(stack_t));
 
 	if (top == NULL)
 	{
@@ -21,8 +22,8 @@ void push(stack_t **stack, unsigned int line_number)
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
+
 	top->n = atoi(global_variable.number);
-	top = global_variable.stack;
 	top->next = *stack;
 	top->prev = NULL;
 	if (*stack != NULL)
@@ -72,7 +73,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	c_ya = (*stack);
-	(*stack ) = (*stack)->next;
+	(*stack) = (*stack)->next;
 
 	free(c_ya);
 }
