@@ -21,29 +21,50 @@ void push(stack_t **stack, unsigned int linenumber)
 
 	tops-> = var_global.push_arg;
 	tops->next = *stack;
-	tops->prev - NULL;
+	tops->prev = NULL;
 	if (*stack != NULL)
 		(*stack)->prev = top;
 	*stack = top;
 
 }
 
-/**
- * _pall - print all function
- * @stack: pointer to linked list stack 
- * @line_number: number line opcode occurs on
+
+/** pall - print all function
+ * @stack: pointer to linked list stack
+ * @line_number: number a line opcode occurs on
  */
 
-void _pint(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number);
 {
-	stack_t = *pwall;
+	stack_t *printem;
 
-	pwall = *stack;
-	if (pwall == NULL)
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	printf("%d\n", pwall->n);
+	printem = *stack;
+	while (printem != NULL)
+	(
+		printf("%d\n", printem->n);
+		printem = printem->next;
+	)
 }
 
+
+/**
+ * pop - remvove element a list
+ * @stack: pointer to first node
+ * @line_number: integer
+ * Return: void
+ */
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *c_ya = *stack;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	*stack = c_ya->next;
+	if (*stack != NULL) 
+		(*stack)->prev = NULL;
+	free(c_ya);
+}
