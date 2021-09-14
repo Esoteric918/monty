@@ -17,6 +17,7 @@ void exec(char (*array)[80])
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{NULL, NULL},
 		};
 	for (j = 0; j < NULL; j++)
 	{
