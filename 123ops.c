@@ -71,9 +71,9 @@ void pop(stack_t **stack, unsigned int line_number)
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	*stack = c_ya->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+	c_ya = (*stack);
+	(*stack ) = (*stack)->next;
+
 	free(c_ya);
 }
 /**
