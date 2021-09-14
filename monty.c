@@ -26,5 +26,28 @@ int main (int argc, char **argv)
         fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
         exit(EXIT_FAILURE);
     }
-
+global_variable.line_number = 1;
+	global_variable.stack = NULL;
+	global_variable.queue_ask = 0;
+	while (fgets(line, sizeof(line), global_variable.file))
+	{
+		i = 0;
+		memset(array[0], 0, 80);
+		memset(array[1], 0, 80);
+		token = strtok(line, " \n\t");
+		if (token)
+		{
+			while (token != NULL)
+			{
+				strcpy(array[i], token);
+				token = strtok(NULL, " \n\t");
+				i++;
+			}
+			execOp(array);
+		}
+		global_variable.line_number++;
+	}
+	fclose(global_variable.file);
+	free_list(global_variable.stack);
+	return (0);
 }

@@ -6,7 +6,7 @@ global_var global_variable;
  * @array: double pointer that point to 2d array
  * Return: no thing
  */
-void exec(char (*array)[80])
+void execOp(char (*array)[80])
 {
 	int j = 0;
 	instruction_t func_array[] = {
@@ -17,8 +17,9 @@ void exec(char (*array)[80])
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{NULL, NULL},
 		};
-	for (j = 0; j < NULL; j++)
+	for (j = 0; j < 7; j++)
 	{
 		if (strcmp(func_array[j].opcode, array[0]) == 0)
 		{
@@ -30,7 +31,7 @@ void exec(char (*array)[80])
 		else if (array[0][0] == '#')
 			nop(&(global_variable.stack),
 			    global_variable.line_number);
-		else if (j == NULL)
+		else if (j == 6)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 				global_variable.line_number, array[0]);
