@@ -73,6 +73,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	c_ya = (*stack);
 	(*stack ) = (*stack)->next;
+
 	free(c_ya);
 }
 /**
