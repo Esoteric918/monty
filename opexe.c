@@ -1,7 +1,8 @@
 #include "monty.h"
 global_var global_variable;
+
 /**
- * exec - Entry point
+ * execOp - Entry point
  * Description: execute opcode function
  * @array: double pointer that point to 2d array
  * Return: no thing
