@@ -55,3 +55,15 @@ void _add(stack_t **stack, unsigned int line_number)
 	(*stack)->n = sum;
 }
 
+
+/**
+ * nop - nop top of stack 
+ * @stack: pointer to lists for monty stack
+ * @line_number: number of line opcode occurs on
+ */
+
+void nop(stack_t **stack, unsigned int line_number);
+{
+	(void)stack;
+	(void)line_number
+}
