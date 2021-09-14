@@ -3,8 +3,8 @@
 /**
  * push - Adds values to the top of the stack
  * @stack: Head of the stack
- * 
- * @linenumber: Line number of monty file
+ *
+ * @line_number: Line number of monty file
  */
 
 void push(stack_t **stack, unsigned int line_number)
@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
-		exit(EXIT_FAILURE);	
+		exit(EXIT_FAILURE);
 	}
 
 	top = global_variable.stack;
@@ -31,7 +31,8 @@ void push(stack_t **stack, unsigned int line_number)
 }
 
 
-/** pall - print all function
+/**
+ * pall - print all function
  * @stack: pointer to linked list stack
  * @line_number: number a line opcode occurs on
  */
@@ -70,7 +71,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	*stack = c_ya->next;
-	if (*stack != NULL) 
+	if (*stack != NULL)
 		(*stack)->prev = NULL;
 	free(c_ya);
 }
