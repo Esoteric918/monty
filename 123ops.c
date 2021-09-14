@@ -12,7 +12,8 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *top;
 	(void)line_number;
 
-	top = malloc(sizeof(stack_t));
+	top->n = atoi(global_variable.number);
+
 	if (top == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -41,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *printem;
 
-	printem = *stack;
+	printem = (*stack);
 	(void) line_number;
 	while (printem != NULL)
 	{
@@ -63,16 +64,15 @@ void pop(stack_t **stack, unsigned int line_number)
 	stack_t *c_ya = NULL;
 
 	(void) line_number;
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || (*stack) == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	*stack = c_ya->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+	c_ya = (*stack);
+	(*stack ) = (*stack)->next;
 	free(c_ya);
 }
 /**
