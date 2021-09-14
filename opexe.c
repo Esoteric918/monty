@@ -17,9 +17,8 @@ void execOp(char (*array)[80])
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{NULL, NULL},
 		};
-	for (j = 0; j < 7; j++)
+	for (j = 0; j < 8; j++)
 	{
 		if (strcmp(func_array[j].opcode, array[0]) == 0)
 		{
@@ -31,7 +30,7 @@ void execOp(char (*array)[80])
 		else if (array[0][0] == '#')
 			nop(&(global_variable.stack),
 			    global_variable.line_number);
-		else if (j == 6)
+		else if (j == 7)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 				global_variable.line_number, array[0]);
