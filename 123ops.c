@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *top;
 	(void)line_number;
 
-	top->n = atoi(global_variable.number);
+	
 
 	if (top == NULL)
 	{
@@ -21,7 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-
+	top->n = atoi(global_variable.number);
 	top = global_variable.stack;
 	top->next = *stack;
 	top->prev = NULL;
