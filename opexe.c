@@ -6,7 +6,7 @@ global_var global_variable;
  * @array: double pointer that point to 2d array
  * Return: no thing
  */
-void exec(char (*array)[80])
+void execOp(char (*array)[80])
 {
 	int j = 0;
 	instruction_t func_array[] = {
