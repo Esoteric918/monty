@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *top;
 	(void)line_number;
 
-	top = malloc(sizeof(stack_t));
+	top->n = atoi(global_variable.number);
 
 	if (top == NULL)
 	{
@@ -22,12 +22,12 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	top->n = atoi(global_variable.number);
-	top->next = (*stack);
+	top = global_variable.stack;
+	top->next = *stack;
 	top->prev = NULL;
 	if (*stack != NULL)
 		(*stack)->prev = top;
-	(*stack) = top;
+	*stack = top;
 
 }
 
@@ -42,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *printem;
 
-	printem = *stack;
+	printem = (*stack);
 	(void) line_number;
 	while (printem != NULL)
 	{
@@ -64,16 +64,16 @@ void pop(stack_t **stack, unsigned int line_number)
 	stack_t *c_ya = NULL;
 
 	(void) line_number;
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || (*stack) == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	*stack = c_ya->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+	c_ya = (*stack);
+	(*stack ) = (*stack)->next;
+
 	free(c_ya);
 }
 /**
