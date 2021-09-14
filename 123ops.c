@@ -21,7 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);	
 	}
 
-	top = global_variable.line_number;
+	top = global_variable.stack;
 	top->next = *stack;
 	top->prev = NULL;
 	if (*stack != NULL)
@@ -43,7 +43,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	printem = *stack;
 	(void) line_number;
 	while (printem != NULL)
-	
+	{
 		printf("%d\n", printem->n);
 		printem = printem->next;
 	}
@@ -73,4 +73,22 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL) 
 		(*stack)->prev = NULL;
 	free(c_ya);
+}
+/**
+ * pint - Prints value at the top of the stack + newline
+ * @stack: Struct stack_s as stack_t **ptr
+ * @line_number: File line number
+ * Return: Nothing (void)
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	(void) line_number;
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_list(global_variable.stack);
+		fclose(global_variable.file);
+		exit(EXIT_FAILURE);
+	}
+	printf("%i\n", (*stack)->n);
 }

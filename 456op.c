@@ -17,7 +17,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
-		exit(EXIT_FAILURE);	
+		exit(EXIT_FAILURE);
 	}
 	now = switcher->n;
 	switcher->n = switcher->next->n;
@@ -61,13 +61,13 @@ void add(stack_t **stack, unsigned int line_number)
 
 
 /**
- * nop - nop top of stack 
+ * nop - nop top of stack
  * @stack: pointer to lists for monty stack
  * @line_number: number of line opcode occurs on
  */
 
-void nop(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
-	(void)line_number
+	(void)line_number;
 }
