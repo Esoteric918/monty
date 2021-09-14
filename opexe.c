@@ -1,5 +1,4 @@
 #include "monty.h"
-global_var global_variable;
 
 /**
  * execOp - Entry point

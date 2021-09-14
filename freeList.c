@@ -1,9 +1,9 @@
 #include "monty.h"
 
-global_var global_variable;
+/*global_var global_variable;*/
 
 /**
- * free-list - free dll
+ * free_list - free dll
  * @stack: head of the dll
  * Return: 0 or 1
  *
