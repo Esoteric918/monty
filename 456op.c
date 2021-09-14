@@ -1,7 +1,7 @@
 #include "monty.h"
 
-/*
- * swap - swap the top of the stack with second top stack
+/**
+ * swap - switch the top of the stack with second top stack
  * @stack: pointer to lists for monty stack
  * @line_number: the number the line opcode occers on
  */
@@ -9,7 +9,7 @@
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *switcher;
-	int now; 
+	int now;
 
 	switcher = (*stack);
 	if (switcher == NULL || switcher->next == NULL)
@@ -25,7 +25,7 @@ void swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _add - add top of stack with top of second stack
+ * add - add top the top of stack with top of second stack
  * @stack: pointer to lists for monty stack
  * @line_number: number line opcode occurs on
  */
@@ -42,7 +42,7 @@ void add(stack_t **stack, unsigned int line_number)
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	while (now)
 	{
 		now = now->next;
