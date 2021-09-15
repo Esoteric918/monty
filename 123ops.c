@@ -64,12 +64,13 @@ void pop(stack_t **stack, unsigned int line_number)
 	stack_t *c_ya = NULL;
 
 	(void) line_number;
+	if (!stack || !(*stack))
+	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	c_ya = (*stack);
 	while (c_ya->prev != NULL)
 	{
 		c_ya = c_ya->prev;
@@ -89,7 +90,9 @@ void pop(stack_t **stack, unsigned int line_number)
 		}
 	}
 	free(c_ya);
+	}
 }
+
 /**
  * pint - Prints value at the top of the stack + newline
  * @stack: Struct stack_s as stack_t **ptr
@@ -99,7 +102,7 @@ void pop(stack_t **stack, unsigned int line_number)
 void pint(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || (*stack) == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free_list(global_variable.stack);
