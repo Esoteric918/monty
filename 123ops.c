@@ -18,7 +18,6 @@ void push(stack_t **stack, unsigned int line_number)
 	if (top == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
@@ -27,7 +26,7 @@ void push(stack_t **stack, unsigned int line_number)
 	top->n = atoi(global_variable.number);
 	top->next = *stack;
 	top->prev = NULL;
-	if (*stack != NULL)
+	if  != NULL)
 		(*stack)->prev = top;
 	*stack = top;
 

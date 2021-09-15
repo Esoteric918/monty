@@ -16,10 +16,10 @@ void execOp(char (*array)[80])
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", nop},
+		{"nop", NULL},
 		{NULL, NULL},
 	};
-	for (j = 0; j < 8; j++)
+	for (j = 0; func_array[j].opcode != NULL; j++)
 	{
 		if (strcmp(func_array[j].opcode, array[0]) == 0)
 		{
