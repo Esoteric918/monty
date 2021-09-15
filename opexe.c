@@ -19,7 +19,7 @@ void execOp(char (*array)[80])
 		{"nop", nop},
 		{NULL, NULL},
 	};
-	for (j = 0; j < 8; j++)
+	for (j = 0; func_array[j].opcode != NULL; j++)
 	{
 		if (strcmp(func_array[j].opcode, array[0]) == 0)
 		{
