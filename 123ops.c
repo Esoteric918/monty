@@ -3,7 +3,7 @@
 /**
  * push - Adds values to the top of the stack
  * @stack: Head of the stack
- *
+ * fix on github
  * @line_number: Line number of monty file
  */
 
@@ -14,17 +14,9 @@ void push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	top = (*stack);
 	top = malloc(sizeof(stack_t));
-
 	if (top == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-<<<<<<< HEAD
-=======
-
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		}
->>>>>>> d38ef80e21791e2c6a59af2fd3dba92c2d91a208
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
@@ -33,7 +25,7 @@ void push(stack_t **stack, unsigned int line_number)
 	top->n = atoi(global_variable.number);
 	top->next = *stack;
 	top->prev = NULL;
-	if  != NULL)
+	if (*stack != NULL)
 		(*stack)->prev = top;
 	*stack = top;
 
