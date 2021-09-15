@@ -28,16 +28,13 @@ void execOp(char (*array)[80])
 					global_variable.line_number);
 			return;
 		}
-		else if (array[0][0] == '#')
+		/*else if (array[0][0] == '#')
 			nop(&(global_variable.stack),
-			    global_variable.line_number);
-		else if (j == 7)
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n",
-				global_variable.line_number, array[0]);
-			fclose(global_variable.file);
-			free_list(global_variable.stack);
-			exit(EXIT_FAILURE);
-		}
+			global_variable.line_number);*/
 	}
+	fprintf(stderr, "L%u: unknown instruction %s\n",
+		global_variable.line_number, array[0]);
+	fclose(global_variable.file);
+	free_list(global_variable.stack);
+	exit(EXIT_FAILURE);
 }
