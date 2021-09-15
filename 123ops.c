@@ -66,35 +66,17 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *c_ya = NULL;
+	stack_t *c_ya = *stack;
 
-	(void) line_number;
-	if (stack == NULL || (*stack) == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		free_list(global_variable.stack);
-		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
 	}
-	c_ya = (*stack);
-	while (c_ya->prev != NULL)
-		c_ya = c_ya->prev;
-	if (c_ya->next != NULL)
-	{
-		c_ya->next->prev = NULL;
-	}
-	if (c_ya == *stack)
-	{
-		if ((*stack)->next != NULL)
-		{
-			(*stack) = (*stack)->next;
-		}
-		else
-		{
-			(*stack) = NULL;
-		}
-	}
-	free(c_ya);
+	*stack = c_ya->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(nodo);
 }
 /**
  * pint - Prints value at the top of the stack + newline
