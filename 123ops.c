@@ -18,7 +18,10 @@ void push(stack_t **stack, unsigned int line_number)
 	if (top == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		}
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
 		exit(EXIT_FAILURE);
@@ -74,8 +77,23 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	c_ya = (*stack);
-	(*stack) = (*stack)->next;
-
+	while (c_ya->prev != NULL)
+		c_ya = c_ya->prev;
+	if (c_ya->next != NULL)
+	{
+		c_ya->next->prev = NULL;
+	}
+	if (c_ya == *stack)
+	{
+		if ((*stack)->next != NULL)
+		{
+			(*stack) = (*stack)->next;
+		}
+		else
+		{
+			(*stack) = NULL;
+		}
+	}
 	free(c_ya);
 }
 /**
