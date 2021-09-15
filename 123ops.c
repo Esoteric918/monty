@@ -69,8 +69,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	stack_t *c_ya = NULL;
 
 	(void) line_number;
-	if (stack == NULL || (*stack) == NULL)
-	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_list(global_variable.stack);
 		fclose(global_variable.file);
@@ -78,6 +76,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	c_ya = (*stack);
 	while (c_ya->prev != NULL)
+	{
 		c_ya = c_ya->prev;
 	if (c_ya->next != NULL)
 	{
